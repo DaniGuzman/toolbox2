@@ -1,0 +1,58 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Document</title>
+</head>
+<script src="https://unpkg.com/vue/dist/vue.js"></script>
+<div id="app">
+    <!-- Ex1 -->
+    <h1>Nome e idade</h1>
+    <p>{{ nome + ' ' + idade }}</p>
+    <input type="text" v-on:input="alteraNome">
+    <input type="text" v-on:input="alteraIdade">
+    <!-- Ex2 -->
+    <p>{{nome+mudaIdade*3}}</p>
+    <input type="text" v-on:input="mudasIdade">
+    <!-- Ex3 -->
+    <p>{{numAleatorio()}}</p>
+</div>
+<script>
+    new Vue ({
+        el:'#app',
+        data: {
+            nome:'Insira o seu nome',
+            idade:'e insira a sua idade',
+            Name:'Daniel',
+            mudaIdade:0,
+            nAleatorio:0
+        },
+        methods: {
+            alteraNome:function(event){
+                this.nome=event.target.value
+            },
+            alteraIdade:function(event){
+                this.idade=event.target.value
+            },
+            //<!-- Ex2 -->
+            mudasIdade:function(event){
+                this.mudaIdade=event.target.value
+            },
+            //<!-- Ex3 -->
+            numAleatorio:function(){
+                this.nAleatorio=Math.floor(Math.random()*2)
+                return Math.random()
+            }
+
+        } 
+    })
+</script>
+
+
+<body>
+
+    
+</body>
+</html>
